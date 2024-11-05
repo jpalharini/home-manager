@@ -81,6 +81,7 @@ in {
     scripts.config
     (import ./packages.d/bb/bb.nix)
     
+    pkgs.busybox
     pkgs.direnv
     pkgs.lorri
     pkgs.maven

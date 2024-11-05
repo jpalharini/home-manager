@@ -1,10 +1,6 @@
 { config, pkgs, ... }:
 
 {
-  programs.zsh.shellAliases = {
-    g = "git";
-  };
-
   programs.git = {
     enable = true;
     userName = "Joao Palharini";
@@ -29,5 +25,17 @@
       core.fsMonitor = true;
       gpg.format = "ssh";
     };
+  };
+
+  programs.lazygit.enable = true;
+  
+  home.file = {
+    ".config/lazygit/themes/catppuccin-mocha-mauve.yml".source = (builtins.fetchurl "https://raw.githubusercontent.com/catppuccin/lazygit/refs/heads/main/themes-mergable/mocha/mauve.yml");
+  };
+
+  programs.zsh.shellAliases = {
+    g = "git";
+    lazygit = "lazygit --use-config-file=\"$XDG_CONFIG_HOME/lazygit/config.yml,$XDG_CONFIG_HOME/lazygit/themes/catppuccin-mocha-mauve.yml\"";
+    lg = "lazygit";
   };
 }
