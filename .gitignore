@@ -1,0 +1,7 @@
+**/.cpcache
+**/.idea
+**/.nrepl-port
+**/*.iml
+modules/packages.d/bb/out
+modules/packages.d/bb/target
+modules/packages.d/bb/result
