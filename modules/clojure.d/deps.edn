@@ -1,0 +1,19 @@
+{:paths       ["src"]
+ :mvn/repos   {"my.datomic.com" {:url "https://my.datomic.com/repo"}}
+ :aliases     {:joao {:extra-paths ["src" "dev"]
+                      :extra-deps  {org.clojure/tools.namespace               {:mvn/version "1.5.0"}
+                                    com.clojure-goes-fast/clj-java-decompiler {:mvn/version "0.3.4"}
+                                    com.clojure-goes-fast/clj-memory-meter    {:mvn/version "0.3.0"}
+                                    org.slf4j/slf4j-api                       {:mvn/version "2.0.13"}
+                                    ch.qos.logback/logback-classic            {:mvn/version "1.5.6"}}
+                      ;:main-opts   ["-e" "(load-file (str (System/getProperty \"user.home\") \"/.clojure/src/user.clj\"))"]
+                      :jvm-opts    ["-Djdk.attach.allowAttachSelf"
+                                    "-XX:-OmitStackTraceInFastThrow"
+                                    "-XX:+UnlockDiagnosticVMOptions" "-XX:+DebugNonSafepoints"]}
+               :rebl {:extra-deps {com.cognitect/rebl          {:mvn/version "0.9.245"}
+                                   org.openjfx/javafx-fxml     {:mvn/version "19"}
+                                   org.openjfx/javafx-controls {:mvn/version "19"}
+                                   org.openjfx/javafx-swing    {:mvn/version "19"}
+                                   org.openjfx/javafx-base     {:mvn/version "19"}
+                                   org.openjfx/javafx-web      {:mvn/version "19"}}
+                      :main-opts  ["-m" "cognitect.rebl"]}}}
