@@ -11,7 +11,7 @@
     userEmail = "joao@palharini.me";
     aliases = {
       co = "checkout";
-      nb = "checkout -b"
+      nb = "checkout -b";
       p = "pull";
       P = "push";
     };

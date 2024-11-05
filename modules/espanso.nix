@@ -33,11 +33,11 @@
           }
           {
             trigger = ";rua";
-            replace = "{{rua}}"
+            replace = "{{rua}}";
           }
           {
             trigger = ";ruan";
-            replace = "{{rua}}, 1674"
+            replace = "{{rua}}, 1674";
           }
           {
             trigger = ";ap";
@@ -56,6 +56,7 @@
             replace = "{{fname}} Pedro Berton {{lname}}";
           }
         ];
+      };
     };
   };
 }
