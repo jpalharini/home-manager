@@ -79,13 +79,14 @@ in {
     scripts.source-local-env
     scripts.reload-config
     scripts.config
-    (import ./packages.d/bb/bb.nix)
+    # todo: broken on linux
+    #(import ./packages.d/bb/bb.nix)
     
-    pkgs.busybox
-    pkgs.direnv
     pkgs.lorri
     pkgs.maven
+    pkgs.minio-client
     pkgs.mkcert
+    pkgs.ripgrep
     pkgs.xmlstarlet
   ];
 }
