@@ -3,6 +3,6 @@
 {
   programs.ssh = {
     enable = true;
-    serverAliveInterval = 60;
+    serverAliveInterval = 30;
   };
 }
