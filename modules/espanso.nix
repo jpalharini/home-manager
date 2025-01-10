@@ -2,25 +2,28 @@
 
 {
   services.espanso = {
-    enable = true;
+    enable = false;
+
     matches = {
-      global_vars = [
-        {
-          name = "fname";
-          type = "echo";
-          params = { echo = "Joao"; };
-        }
-        {
-          name = "lname";
-          type = "echo";
-          params = { echo = "Palharini"; };
-        }
-        {
-          name = "rua";
-          type = "echo";
-          params = { echo = "Rua Eduardo de Brito"; };
-        }
-      ];
+      global_vars = {
+        global_vars = [
+          {
+            name = "fname";
+            type = "echo";
+            params = { echo = "Joao"; };
+          }
+          {
+            name = "lname";
+            type = "echo";
+            params = { echo = "Palharini"; };
+          }
+          {
+            name = "rua";
+            type = "echo";
+            params = { echo = "Rua Eduardo de Brito"; };
+          }
+        ];
+      };
       base = {
         matches = [
           {
