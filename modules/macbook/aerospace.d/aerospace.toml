@@ -107,16 +107,11 @@ cmd-ctrl-0 = 'exec-and-forget _aerospace-relative-resize half'
 cmd-ctrl-1 = 'exec-and-forget _aerospace-relative-resize one_third'
 cmd-ctrl-2 = 'exec-and-forget _aerospace-relative-resize two_thirds'
 
-# See: https://nikitabobko.github.io/AeroSpace/commands#workspace
-cmd-keypad1 = 'workspace 1'
-cmd-keypad2 = 'workspace 2-2'
-
 ctrl-leftSquareBracket = 'workspace prev'
 ctrl-rightSquareBracket = 'workspace next'
 
-# See: https://nikitabobko.github.io/AeroSpace/commands#move-node-to-workspace
-cmd-ctrl-rightSquareBracket = 'exec-and-forget _aerospace-move-node-or-workspace.sh next'
-cmd-ctrl-leftSquareBracket = 'exec-and-forget _aerospace-move-node-or-workspace.sh prev'
+cmd-ctrl-rightSquareBracket = 'exec-and-forget _aerospace-move-node-or-workspace next'
+cmd-ctrl-leftSquareBracket = 'exec-and-forget _aerospace-move-node-or-workspace prev'
 
 # See: https://nikitabobko.github.io/AeroSpace/commands#mode
 cmd-ctrl-x = 'mode service'
@@ -131,7 +126,5 @@ f = ['layout floating tiling', 'mode main'] # Toggle between floating and tiling
 backspace = ['close-all-windows-but-current', 'mode main']
 
 [workspace-to-monitor-force-assignment]
-1 = 1
-2-1 = 2
-2-2 = 2
-slack = 3
+1-main = ['DELL P2721Q', '^built-in*']
+slack = ['ARZOPA', '^built-in*']
