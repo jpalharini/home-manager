@@ -23,7 +23,11 @@ let
       }
       
       function is_aws () {
-        { getf "" 1>/dev/null && return 0; } || return 1
+        if [ ! -z $IS_AWS ]; then
+          { getf "" 1>/dev/null && export IS_AWS=0 && return 0; } || { export IS_AWS=1 && return 1; }
+        else
+          return $IS_AWS
+        fi
       }
       
       function status () {
