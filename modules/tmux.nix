@@ -101,6 +101,7 @@ in {
 
   programs.tmux = {
     enable = true;
+    sensibleOnTop = false;
     
     baseIndex = 1;
     disableConfirmationPrompt = true;
