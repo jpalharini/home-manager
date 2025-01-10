@@ -12,6 +12,7 @@
     ./modules/macbook/git.nix
     ./modules/macbook/kubernetes.nix
     ./modules/macbook/nubank.nix
+    ./modules/macbook/vpn.nix
   ];
 
   home.stateVersion = "24.05";
