@@ -10,6 +10,13 @@
           AddKeysToAgent = "yes";
         };
       };
+      "10.20.0.*" = {
+        user = "k3s";
+        identityFile = "~/.ssh/k8s-vm";
+        extraOptions = {
+          IdentityAgent = "none";
+        };
+      };
     };
   };
 }
