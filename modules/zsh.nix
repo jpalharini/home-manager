@@ -85,6 +85,8 @@ in {
       };
 
       shellAliases = {
+        sudoe = "sudo -E -s";
+
         cat = "bat";
         ls = "eza";
         vim = "nvim";
@@ -93,7 +95,16 @@ in {
 
         rel = "source reload-config";
         hmsr = "hms && rel";
+
+        nixsh = "nix-shell --command zsh";
+        nixpkgs = "f() { nix search nixpkgs $1 2>/dev/null }; f";
       };
+    };
+
+    direnv = {
+      enable = true;
+      enableZshIntegration = true;
+      nix-direnv.enable = true;
     };
 
     eza = {
@@ -120,4 +131,9 @@ in {
       theme = lib.attrsets.overrideExisting deps.yazi-catppuccin-theme { manager.syntect_theme = deps.bat-catppuccin-theme; };
     };
   };
+
+  home.packages = with pkgs; [
+    bat
+    btop
+  ];
 }
