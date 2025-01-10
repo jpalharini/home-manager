@@ -2,6 +2,6 @@
 **/.idea
 **/.nrepl-port
 **/*.iml
-modules/packages.d/bb/out
-modules/packages.d/bb/target
-modules/packages.d/bb/result
+home-manager/modules/packages.d/bb/out
+home-manager/modules/packages.d/bb/target
+home-manager/modules/packages.d/bb/result
