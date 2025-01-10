@@ -14,6 +14,8 @@
       drs = "darwin-rebuild switch";
       hms = "home-manager switch -f ~/.config/home-manager/macbook.nix";
 
+      oidea = "open -a 'IntelliJ IDEA'";
+
       list-javas = "/usr/libexec/java_home -V";
       java11 = "export JAVA_HOME=$(/usr/libexec/java_home 11)";
       java17 = "export JAVA_HOME=$(/usr/libexec/java_home 17)";
