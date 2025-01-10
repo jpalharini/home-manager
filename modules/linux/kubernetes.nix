@@ -1,6 +1,16 @@
 { pkgs, ... }:
 
 let
+  minikube-config = {
+    kubernetes-version = "v1.29.9";
+    driver = "kvm2";
+    container-runtime = "docker";
+    cpus = 16;
+    memory = "128g";
+    disk-size = "100g";
+    nodes = 3;
+  };
+
   scripts = {
     mkubed = (pkgs.writeShellScriptBin "mkubed" ''
       tmpdir="/tmp/mkubed"
@@ -8,13 +18,7 @@ let
       function start () {
         mkdir -p $tmpdir
         
-        minikube start \
-          --kubernetes-version=v1.29.9 \
-          --driver=kvm2 \
-          --container-runtime=docker \
-          --cpus=16 \
-          --memory=128g \
-          --nodes=3
+        minikube start
 
         minikube addons enable ingress
       }
@@ -39,11 +43,23 @@ let
     '');
   };
 in {
+  home.file = {
+    ".minikube/config/config.json" = {
+      enable = false;
+      text = (builtins.toJSON minikube-config);
+    };
+  };
+
+  programs.zsh.localVariables = {
+    KUBECONFIG = "$HOME/.kube/config";
+  };
+
   home.packages = [
     scripts.mkubed
     pkgs.docker
     pkgs.docker-machine-kvm2
     pkgs.kubectl
+    pkgs.kubernetes-helm
     pkgs.minikube
   ];
 }
