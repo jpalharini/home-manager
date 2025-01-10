@@ -4,6 +4,7 @@
   home.packages = with pkgs; [
     babashka
     clojure
+    corretto21
     leiningen
   ];
 
