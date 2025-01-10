@@ -20,7 +20,7 @@
       signByDefault = true;
     };
     extraConfig = {
-      init.defaultBranche = "main";
+      init.defaultBranch = "main";
       push.autoSetupRemote = true;
       core.fsMonitor = true;
       gpg.format = "ssh";
@@ -32,6 +32,10 @@
   home.file = {
     ".config/lazygit/themes/catppuccin-mocha-mauve.yml".source = (builtins.fetchurl "https://raw.githubusercontent.com/catppuccin/lazygit/refs/heads/main/themes-mergable/mocha/mauve.yml");
   };
+
+  home.packages = with pkgs; [
+    bfg-repo-cleaner
+  ];
 
   programs.zsh.shellAliases = {
     g = "git";
