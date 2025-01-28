@@ -6,11 +6,15 @@ let
       (builtins.fetchurl { 
         url = "https://raw.githubusercontent.com/catppuccin/bat/refs/heads/main/themes/Catppuccin%20Mocha.tmTheme";
         name = "CatppuccinMocha.tmTheme";
+        sha256 = "1algv6hb3sz02cy6y3hnxpa61qi3nanqg39gsgmjys62yc3xngj6";
       });
     yazi-catppuccin-theme =
       (builtins.fromTOML(
         (builtins.readFile(
-          (builtins.fetchurl "https://raw.githubusercontent.com/catppuccin/yazi/refs/heads/main/themes/mocha/catppuccin-mocha-mauve.toml")))));
+          (builtins.fetchurl {
+            url = "https://raw.githubusercontent.com/catppuccin/yazi/refs/heads/main/themes/mocha/catppuccin-mocha-mauve.toml";
+            sha256 = "1q0in5gzviczcqxfx1kk624pajbzdw3cardkbvma5bjbv3kiz276";
+          })))));
   };
 
 in {

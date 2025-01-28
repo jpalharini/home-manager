@@ -110,6 +110,7 @@ in {
     baseIndex = 1;
     disableConfirmationPrompt = true;
     escapeTime = 10;
+    historyLimit = 10000;
     keyMode = "vi";
     mouse = true;
     prefix = "C-q";

@@ -6,7 +6,10 @@ let
     pod-vars = "${aliases.pods-fzf} | read -r ns pod _rest";
   };
   deps = {
-    k9s-catppuccin-theme = (builtins.fetchurl "https://raw.githubusercontent.com/catppuccin/k9s/refs/heads/main/dist/catppuccin-mocha.yaml");
+    k9s-catppuccin-theme = (builtins.fetchurl {
+      url = "https://raw.githubusercontent.com/catppuccin/k9s/refs/heads/main/dist/catppuccin-mocha.yaml";
+      sha256 = "15ys74ygbfss9ka38x1vfa4gb2rnln4f0ckwdy29x2ghmr0hj2dg";
+    });
   };
 in {
   home.file.".config/k9s/skins/catppuccin-mocha.yaml".source = deps.k9s-catppuccin-theme;
