@@ -2,7 +2,9 @@
 
 let 
   scripts = {
-    move-node-or-workspace = (pkgs.writeShellScriptBin "_aerospace-move-node-or-workspace" ''
+    move-node-or-workspace = (pkgs.writeShellScript "aerospace-move-node-or-workspace" /*bash*/ ''
+      PATH="$PATH:/run/current-system/sw/bin"
+
       direction=$1
 
       # If it's the only window, move entire workspace to monitor in $direction
@@ -13,7 +15,9 @@ let
       fi
     '');
   
-  relative-resize = (pkgs.writeShellScriptBin "_aerospace-relative-resize" ''
+  relative-resize = (pkgs.writeShellScript "aerospace-relative-resize" /*bash*/ ''
+    PATH="$PATH:/run/current-system/sw/bin"
+
     current_monitor=$(aerospace list-windows --focused --format '%{monitor-name}')
     
     if [[ "$current_monitor" == "Built-in Retina Display" ]]; then
@@ -158,8 +162,9 @@ in {
       ];
       
       workspace-to-monitor-force-assignment = {
-        "1-main" = [ "Dell P2721Q" "^built-in*" ];
+        "1-main" = [ "GP27-FUS" "^built-in*" ];
         "slack" = [ "ARZOPA" "^built-in*" ];
+        "discord" = [ "ARZOPA" "^built-in*" ];
       };
     };
   };
