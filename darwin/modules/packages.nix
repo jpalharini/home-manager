@@ -14,7 +14,6 @@
     awslogs
     aws-iam-authenticator
     bat
-    binutils
     chezmoi
     clojure
     coreutils-prefixed
@@ -34,7 +33,6 @@
     gnused
     gnutar
     gnugrep
-    gnumake
     go
     gzip
     htop
