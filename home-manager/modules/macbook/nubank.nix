@@ -2,23 +2,14 @@
 
 let
   scripts = {
-    aws-profile = (pkgs.writeShellScriptBin "aws-profile" ''
-      new_profile=$1
-
-      if [[ $new_profile == 'datomic' ]]; then
-        export AWS_PROFILE=bubbagumpshrimp
+    aws-profile = (pkgs.writeShellScript "aws-profile" ''
+      if [[ $1 == 'datomic' || $1 == 'bubbagumpshrimp' ]]; then
         export AWS_REGION=us-east-1
-        creds=$(grep -A2 '\[bubbagumpshrimp\]' $HOME/.aws/credentials | tail -2)
-        access_key_id=$(echo -n $creds | head -1 | awk '{print $3}')
-        secret_access_key=$(echo -n $creds | tail -1 | awk '{print $3}')
-        export AWS_ACCESS_KEY_ID=$access_key_id
-        export AWS_SECRET_ACCESS_KEY=$secret_access_key
       else
-        unset AWS_ACCESS_KEY_ID
-        unset AWS_SECRET_ACCESS_KEY
-        unset AWS_REGION
-        export AWS_PROFILE=$new_profile
+        export AWS_REGION=sa-east-1
       fi
+      export AWS_PROFILE=$1
+      eval "$(aws configure export-credentials --profile $1 --format env)"
     '');
     bubba-codeartifact-refresh = (pkgs.writeShellScript "bubba-codeartifact-refresh" ''
       codeartifact_token=$(aws codeartifact get-authorization-token --profile bubbagumpshrimp --domain joao --domain-owner 155889952199 --region us-east-1 --query authorizationToken --output text)
@@ -32,17 +23,13 @@ let
   };
 
 in {
-  home.packages = [
-    scripts.aws-profile
-  ];
-
   programs.zsh = {
     initExtra = lib.mkAfter ''
       source $HOME/.nurc
     '';
 
     shellAliases = {
-      awsp = "source aws-profile";
+      awsp = "source ${scripts.aws-profile}";
       awsr = ''
         nu aws shared-role-credentials refresh --account-alias=br \
         && nu codeartifact login maven \
