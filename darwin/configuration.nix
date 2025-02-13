@@ -22,6 +22,8 @@
     package = pkgs.nix;
     settings = {
       experimental-features = ["nix-command" "flakes"];
+      trusted-users = ["joao.palharini"];
+      max-jobs = 4;
     };
   };
 
