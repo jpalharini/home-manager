@@ -7,8 +7,8 @@
     '';
 
     shellAliases = {
-      nixr = "sudo nixos-rebuild switch";
-      hms = "home-manager switch -f ~/.config/home-manager/linux.nix";
+      nixr = "sudo nixos-rebuild switch --flake ~/.config/nix";
+      hms = "home-manager switch --flake ~/.config/nix";
 
       java11 = "export JAVA_HOME=${pkgs.corretto11}";
       java17 = "export JAVA_HOME=${pkgs.corretto17}";

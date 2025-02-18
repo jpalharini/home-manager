@@ -25,6 +25,7 @@
 
       pkgsForSystem = system: import nixpkgs {
         inherit system;
+        config.allowUnfree = true;
       };
 
       mkHomeConfiguration = args: home-manager.lib.homeManagerConfiguration {
@@ -44,7 +45,7 @@
         nu-precision = mkNixosConfiguration {
           system = "x86_64-linux";
           modules = [
-            ./configuration.nix
+            ./nixos/configuration.nix
           ];
         };
       };
@@ -66,7 +67,7 @@
         "jpalharini@nu-precision" = mkHomeConfiguration {
           system = "x86_64-linux";
           modules = [
-            /home-manager/linux.nix
+            ./home-manager/linux.nix
           ];
         };
       };
