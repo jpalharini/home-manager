@@ -11,6 +11,7 @@
     ./modules/linux/zsh.nix
     ./modules/linux/ssh.nix
     ./modules/linux/kubernetes.nix
+    ./modules/linux/aws.nix
   ];
 
   home.stateVersion = "24.05";
