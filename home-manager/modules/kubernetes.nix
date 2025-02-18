@@ -29,12 +29,17 @@ in {
     };
     k9s = {
       enable = true;
-      settings.k9s.ui.skin = "catppuccin-mocha";
+      settings.k9s = {
+        noExitOnCtrlC = true;
+        ui = {
+          skin = "catppuccin-mocha";
+          logoless = true;
+        };
+      };
       aliases.aliases = {
         pp = "v1/pods";
         dep = "apps/v1/deployments";
       };
     };
   };
-
 }
