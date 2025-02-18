@@ -4,7 +4,10 @@
   programs.alacritty = {
     enable = true;
     settings = {
-      general.import = [ (builtins.fetchurl "https://github.com/catppuccin/alacritty/raw/main/catppuccin-mocha.toml") ];
+      general.import = [ (builtins.fetchurl {
+        url = "https://github.com/catppuccin/alacritty/raw/main/catppuccin-mocha.toml";
+        sha256 = "1idjbm5jim9b36235hgwgp9ab81fmbij42y7h85l4l7cqcbyz74l";
+      }) ];
       
       terminal.shell.program = "${pkgs.zsh}/bin/zsh";
       
