@@ -58,11 +58,11 @@
     },
     "nixpkgs-joao": {
       "locked": {
-        "lastModified": 1736971590,
-        "narHash": "sha256-2U7tF2NdCuDxR72RCYnOqkzcu8ozcXHBjIpk50MvHxY=",
+        "lastModified": 1739467546,
+        "narHash": "sha256-EkEAuCB8yIr9LEw33rf5qxR6zbV0Wl45CRNBbhsbFK0=",
         "owner": "jpalharini",
         "repo": "nixpkgs",
-        "rev": "5d12dff4e2385675fd0bc10b79766f403edae083",
+        "rev": "5ff97deab0068ee4951ee6f988e154bbb991671c",
         "type": "github"
       },
       "original": {
