@@ -83,6 +83,7 @@ in {
     #(import ./packages.d/bb/bb.nix)
     
     pkgs.autoconf
+    pkgs.jq
     pkgs.lorri
     pkgs.maven
     pkgs.minio-client
