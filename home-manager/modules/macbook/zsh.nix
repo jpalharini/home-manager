@@ -11,8 +11,8 @@
     '';
 
     shellAliases = {
-      drs = "darwin-rebuild switch";
-      hms = "home-manager switch -f ~/.config/home-manager/macbook.nix";
+      drs = "darwin-rebuild switch --flake ~/.config/nix";
+      hms = "home-manager switch --flake ~/.config/nix";
 
       oidea = "open -a 'IntelliJ IDEA'";
 
