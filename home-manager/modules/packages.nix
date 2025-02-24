@@ -82,6 +82,7 @@ in {
     # todo: broken on linux
     #(import ./packages.d/bb/bb.nix)
     
+    pkgs.autoconf
     pkgs.lorri
     pkgs.maven
     pkgs.minio-client
