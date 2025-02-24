@@ -4,6 +4,7 @@
   programs.zsh = {
     initExtra = /*bash*/ ''
       export JAVA_HOME=${pkgs.corretto21}
+      export DOCKER_HOST="unix://$XDG_RUNTIME_DIR/docker.sock"
     '';
 
     shellAliases = {
