@@ -8,11 +8,14 @@
     nix-darwin.inputs.nixpkgs.follows = "nixpkgs";
     home-manager.url = "github:nix-community/home-manager";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
-    #secrets.url = "path:./secrets";
+    secrets = {
+      url = "git+ssh://git@nu-precision.home/srv/git/secrets.git";
+      flake = false;
+    };
   };
 
   outputs = { 
-    self, nixpkgs, nixpkgs-joao, nix-darwin, home-manager, ... 
+    self, nixpkgs, nixpkgs-joao, nix-darwin, home-manager, secrets, ... 
   } @ inputs: 
   
     let
@@ -31,6 +34,7 @@
       mkHomeConfiguration = args: home-manager.lib.homeManagerConfiguration {
         pkgs = pkgsForSystem args.system;
         extraSpecialArgs = {
+          inherit inputs;
           pkgs-joao = import nixpkgs-joao {
             system = args.system;
             config.allowUnfree = true;
