@@ -1,8 +1,7 @@
-{ pkgs, inputs, ... }:
+{ pkgs, secrets, ... }:
 
 {
   services.syncthing = {
-    tray.enable = false;
     settings = {
       folders = {
         jpalharini-dev = {
@@ -17,13 +16,9 @@
           addresses = [
             "tcp://10.0.10.20:22000"
           ];
-          id = builtins.readFile "${inputs.secrets}/syncthing/nu-precision";
+          id = secrets.syncthing.nu-precision;
         };
       };
     };
   };
-
-  home.packages = [
-    pkgs.syncthingtray
-  ];
 }
