@@ -4,8 +4,6 @@
   services.syncthing = {
     enable = true;
     settings = {
-      overrideDevices = false;
-      overrideFolders = false;
       folders = {
         jpalharini-dev = {
           label = "dev";

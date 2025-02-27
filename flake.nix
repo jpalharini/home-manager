@@ -8,18 +8,20 @@
     nix-darwin.inputs.nixpkgs.follows = "nixpkgs";
     home-manager.url = "github:nix-community/home-manager";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
-    secrets = {
-      url = "git+ssh://git@nu-precision.home/srv/git/secrets.git";
+    secrets-repo = {
+      url = "git+ssh://nu-precision.home/srv/git/secrets";
       flake = false;
     };
   };
 
   outputs = { 
-    self, nixpkgs, nixpkgs-joao, nix-darwin, home-manager, secrets, ... 
+    self, nixpkgs, nixpkgs-joao, nix-darwin, home-manager, secrets-repo, ... 
   } @ inputs: 
   
     let
       inherit (self) outputs;
+
+      secrets = builtins.fromTOML (builtins.readFile "${secrets-repo}/secrets.toml");
 
       mkNixosConfiguration = args: nixpkgs.lib.nixosSystem {
         system = args.system;
@@ -34,7 +36,7 @@
       mkHomeConfiguration = args: home-manager.lib.homeManagerConfiguration {
         pkgs = pkgsForSystem args.system;
         extraSpecialArgs = {
-          inherit inputs;
+          inherit inputs secrets;
           pkgs-joao = import nixpkgs-joao {
             system = args.system;
             config.allowUnfree = true;
