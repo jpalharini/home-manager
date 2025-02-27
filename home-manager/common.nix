@@ -11,6 +11,7 @@
     ./modules/kubernetes.nix
     ./modules/clojure.nix
     ./modules/espanso.nix
+    ./modules/syncthing.nix
   ];
 
   programs.home-manager.enable = true;
