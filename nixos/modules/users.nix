@@ -12,15 +12,33 @@
         "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIOzBdEtIawSqoFkhPbeMIKel6C2JvDJwBgZE8sonhpb6" # 1password
       ];
     };
+
+    git = {
+      isNormalUser = true;
+      linger = true;
+      packages = [ pkgs.git ];
+      shell = "${pkgs.git}/bin/git-shell";
+
+      openssh.authorizedKeys.keys = [
+        "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIOzBdEtIawSqoFkhPbeMIKel6C2JvDJwBgZE8sonhpb6" # 1password
+        "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIKfGRJeZ4QkVcKCqS+3BXjvCHM77Ze9YpWD6qv+qJyN1"
+      ];
+    };
   };
 
   services.syncthing = {
-    enable = true;
+    enable = false;
     user = "jpalharini";
     guiAddress = "10.0.10.20:8384";
     dataDir = "/home/jpalharini/syncthing";
     settings = {
-      options.urAccepted = -1;
+      options = {
+        urAccepted = -1;
+        # make it only work locally
+        relaysEnabled = false;
+        natEnabled = false;
+        globalAnnounceEnabled = false;
+      };
       overrideDevices = false;
       devices = {
         nu-mac = {

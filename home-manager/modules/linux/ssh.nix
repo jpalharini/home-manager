@@ -4,6 +4,13 @@
   programs.ssh = {
     enable = true;
     matchBlocks = {
+      "nu-precision.home 10.0.10.20 localhost 127.0.0.1" = {
+        identityFile = "~/.ssh/local";
+        extraOptions = {
+          AddKeysToAgent = "yes";
+          IdentityAgent = "none";
+        };
+      };
       "github.com" = {
         identityFile = "~/.ssh/github";
         extraOptions = {
