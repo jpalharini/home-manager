@@ -9,7 +9,7 @@
     home-manager.url = "github:nix-community/home-manager";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
     secrets-repo = {
-      url = "git+ssh://nu-precision.home/srv/git/secrets";
+      url = "git+ssh://git@nu-precision.home/srv/git/secrets";
       flake = false;
     };
   };
