@@ -1,8 +1,7 @@
-{ pkgs, inputs, ... }:
+{ pkgs, secrets, ... }:
 
 {
   services.syncthing = {
-    tray.enable = false;
     guiAddress = "10.0.10.20:8384";
     settings = {
       folders = {
@@ -19,7 +18,7 @@
             "tcp://10.0.20.20:22000"
             "tcp://10.0.20.21:22000"
           ];
-          id = builtins.readFile "${inputs.secrets}/syncthing/nu-mac";
+          id = secrets.syncthing.nu-mac;
         };
       };
     };
