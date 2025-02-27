@@ -3,6 +3,7 @@
 {
   services.syncthing = {
     enable = true;
+    tray.enable = false;
     settings = {
       folders = {
         jpalharini-dev = {
