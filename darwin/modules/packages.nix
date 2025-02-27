@@ -101,10 +101,10 @@
       "jimeh/emacs-builds/emacs-app"
       "kdenlive"
       "meetingbar"
+      "moonlight"
       "obs"
       "raycast"
       "stats"
-      "syncthing"
       "xquartz"
     ];
   };
