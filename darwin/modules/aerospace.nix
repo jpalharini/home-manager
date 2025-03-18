@@ -26,11 +26,15 @@ let
     else
         resolution_field="UI Looks like"
     fi
+
+    shopt -s lastpipe
     
     system_profiler SPDisplaysDataType \
       | grep -Pzo -a "(?<=$current_monitor:\n)(\s{10}.+){1,}" \
       | grep -Pao "(?<=$resolution_field: )(.+)(?= @)" \
       | read -r monitor_w _ monitor_h
+    
+    shopt -u lastpipe
     
     if [[ "$current_monitor" == "Built-in Retina Display" ]]; then
         monitor_w=$(( monitor_w / 2 ))
