@@ -39,6 +39,7 @@ in {
       aliases.aliases = {
         pp = "v1/pods";
         dep = "apps/v1/deployments";
+        ingtcp = "traefik.io/v1alpha1/ingressroutetcps";
       };
     };
   };
