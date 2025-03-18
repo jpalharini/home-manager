@@ -23,6 +23,10 @@ let
   };
 
 in {
+  home.packages = [
+    pkgs.gimme-aws-creds
+  ];
+
   programs.zsh = {
     initExtra = lib.mkAfter ''
       source $HOME/.nurc
