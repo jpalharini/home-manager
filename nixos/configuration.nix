@@ -54,7 +54,10 @@
     openssh = {
       enable = true;
       settings = {
-        AllowUsers = [ "jpalharini" ];
+        AllowUsers = [
+          "jpalharini"
+          "git"
+        ];
         PasswordAuthentication = false;
         PermitRootLogin = "no";
         X11Forwarding = true;
