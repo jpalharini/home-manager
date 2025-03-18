@@ -171,7 +171,6 @@ in {
       workspace-to-monitor-force-assignment = {
         "1-main" = [ "GP27-FUS" "^built-in*" ];
         "slack" = [ "ARZOPA" "^built-in*" ];
-        "discord" = [ "ARZOPA" "^built-in*" ];
       };
     };
   };
