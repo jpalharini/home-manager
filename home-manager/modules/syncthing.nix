@@ -1,6 +1,21 @@
-{ ... }:
+{ pkgs, ... }:
 
-{
+let
+
+  scripts = {
+    find-ignored = pkgs.writeShellScriptBin "syncthing-find-ignored" /*bash*/ ''
+      ROOT_FOLDER="''${1:-$(pwd)}"
+
+      if [ -f "$ROOT_FOLDER/.stignore" ]; then
+        pushd ~/dev/misc/syncthing/cmd/dev/stfindignored
+        go run main.go "$ROOT_FOLDER" 2>/dev/null
+      else
+        echo "ERROR: .stignore file not found"
+      fi
+    '';
+  };
+
+in {
   services.syncthing = {
     enable = true;
     tray.enable = false;
@@ -26,4 +41,8 @@
       };
     };
   };
+
+  home.packages = [
+    scripts.find-ignored
+  ];
 }
