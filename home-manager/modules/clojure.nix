@@ -10,7 +10,12 @@
 
   home.file = {
     ".clojure" = {
-      source = ./clojure.d;
+      source = ./clojure.d/clojure;
+      recursive = true;
+    };
+
+    ".lein" = {
+      source = ./clojure.d/lein;
       recursive = true;
     };
   };
