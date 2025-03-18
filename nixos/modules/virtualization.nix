@@ -5,11 +5,20 @@
     bridges = {
       vmbr0 = {
         interfaces = [
-          "enp142s0f0"
+          "ens6f0np0"
         ];
       };
     };
     interfaces.vmbr0.useDHCP = true;
+    extraHosts = ''
+      10.20.0.11 k8s-control-plane-1
+      10.20.0.12 k8s-control-plane-2
+      10.20.0.13 k8s-control-plane-3
+
+      10.20.0.21 k8s-worker-1
+      10.20.0.22 k8s-worker-2
+      10.20.0.23 k8s-worker-3
+    '';
   };
 
   virtualisation = {

@@ -18,7 +18,7 @@
           policy = [ "magic" ];
         };
       };
-      enp142s0f0 = {
+      ens6f0np0 = {
         useDHCP = true;
       };
     };
