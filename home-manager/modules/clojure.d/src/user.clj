@@ -20,17 +20,18 @@
 (defmacro cpu-time
   "Evaluates expr and measures the CPU time it took. Returns the value of expr.
    If print? is set to false, returns a tuple of value of expr and CPU time in millis."
-  [expr & {:keys [print?]
-           :or   {print? true}}]
-  `(let [cpu-time-fn# (fn [] (-> (ManagementFactory/getThreadMXBean)
-                                 (.getCurrentThreadCpuTime)))
-         start#       (cpu-time-fn#)
-         ret#         ~expr
-         elapsed-ms#  (-> (cpu-time-fn#)
-                          (- start#)
-                          (double)
-                          (/ 1000000.0))]
-     (if ~print?
-       (do (prn (str "Elapsed time: " elapsed-ms# " msecs"))
-           ret#)
-       [ret# elapsed-ms#])))
+  ([& body]
+   (cpu-time {:print? true} body))
+  ([{:keys [print?]} & body]
+   `(let [cpu-time-fn# (fn [] (-> (ManagementFactory/getThreadMXBean)
+                                  (.getCurrentThreadCpuTime)))
+          start#       (cpu-time-fn#)
+          ret#         ~@body
+          elapsed-ms#  (-> (cpu-time-fn#)
+                           (- start#)
+                           (double)
+                           (/ 1000000.0))]
+      (if ~print?
+        (do (prn (str "Elapsed CPU time: " elapsed-ms# " msecs"))
+            ret#)
+        [ret# elapsed-ms#]))))
