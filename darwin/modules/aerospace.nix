@@ -104,9 +104,12 @@ in {
         ctrl-leftSquareBracket = "workspace prev";
         ctrl-rightSquareBracket = "workspace next";
         
-        cmd-ctrl-rightSquareBracket = "exec-and-forget ${scripts.move-node-or-workspace} next";
-        cmd-ctrl-leftSquareBracket = "exec-and-forget ${scripts.move-node-or-workspace} prev";
-    
+        cmd-ctrl-rightSquareBracket = "move-node-to-monitor next";
+        cmd-ctrl-leftSquareBracket = "move-node-to-monitor prev";
+
+        ctrl-shift-rightSquareBracket = "move-workspace-to-monitor next";
+        ctrl-shift-leftSquareBracket = "move-workspace-to-monitor prev";
+
         cmd-ctrl-x = "mode service";
       };
 
