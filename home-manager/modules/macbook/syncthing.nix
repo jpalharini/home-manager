@@ -17,6 +17,7 @@
             "tcp://10.0.10.20:22000"
           ];
           id = secrets.syncthing.nu-precision;
+          compression = "never";
         };
       };
     };
