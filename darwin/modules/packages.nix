@@ -61,7 +61,6 @@
     shellcheck
     speedtest-cli
     telegraf
-    tmux
     vim
     vscode
     watch
