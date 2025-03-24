@@ -79,13 +79,15 @@
     };
     taps = [
       "jimeh/emacs-builds"
-      "homebrew/services"
     ];
     brews = [
+      "cffi"
+      "cryptography"
       "fontconfig"
       "openssl@3"
       "pam-reattach"
       "pandoc"
+      "pycparser"
     ];
     casks = [
       "ankerwork"
