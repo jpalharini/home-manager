@@ -26,6 +26,11 @@
         core.fsMonitor = true;
         gpg.format = "ssh";
       };
+      ignores = [
+        ".idea/"
+        ".nrepl-port"
+        "*.iml"
+      ];
     };
     lazygit.enable = true;
   };
