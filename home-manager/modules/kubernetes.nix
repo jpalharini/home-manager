@@ -12,7 +12,13 @@ let
     });
   };
 in {
-  home.file.".config/k9s/skins/catppuccin-mocha.yaml".source = deps.k9s-catppuccin-theme;
+  home.file.k9s-skin = {
+    source = deps.k9s-catppuccin-theme;
+    target = if pkgs.stdenv.isDarwin then
+        "Library/Application Support/"
+      else
+        ".config/" + "k9s/skins/catppuccin-mocha.yaml";
+  };
 
   programs = {
     zsh = {
